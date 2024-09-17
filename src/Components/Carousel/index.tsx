@@ -58,7 +58,7 @@ export default function CaptionCarousel() {
   ]
 
   return (
-    <Box position={'relative'} height={'auto'} width={'100%'} overflow={'hidden'} >
+    <Box position={'relative'} height={'100vh'} width={'100vw'} overflow={'hidden'} >
       <link
         rel="stylesheet"
         type="text/css"
@@ -70,19 +70,19 @@ export default function CaptionCarousel() {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
       {/* Left Icon */}
-      <IconButton
+      {/* <IconButton
         aria-label="left-arrow"
         variant="ghost"
         position="absolute"
-        left={side}
+        left={0}
         top={top}
-        transform={'translate(0%, -50%)'}
+        transform={'translate(0, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
         <BiLeftArrowAlt size="40px" />
-      </IconButton>
+      </IconButton> */}
       {/* Right Icon */}
-      <IconButton
+      {/* <IconButton
         aria-label="right-arrow"
         variant="ghost"
         position="absolute"
@@ -92,21 +92,22 @@ export default function CaptionCarousel() {
         zIndex={2}
         onClick={() => slider?.slickNext()}>
         <BiRightArrowAlt size="40px" />
-      </IconButton>
+      </IconButton> */}
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={'100vh'} 
+            height={'auto'} 
+            minHeight={'600'}
             position="relative"
-            top={0}
-            backgroundPosition="center"
+            top={top}
+            backgroundPosition={'center'}
             backgroundRepeat="no-repeat"
             backgroundSize="contain" 
             backgroundImage={`url(${card.image})`}>
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="full" position="relative">
+            <Container size="container.lg" height="full" width={'full'} position="relative">
               <Stack
                 spacing={6}
                 w={'full'}
@@ -125,6 +126,9 @@ export default function CaptionCarousel() {
           </Box>
         ))}
       </Slider>
+      <div>
+        신랑 유성래
+      </div>
     </Box>
   )
 }

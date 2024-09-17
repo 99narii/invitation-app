@@ -5,6 +5,7 @@ export default createGlobalStyle`
     ${reset}
     *, *::before, *::after{
         box-sizing: border-box;
+        max-width: 600px;
     }
     html{
         font-size: 1vw;
