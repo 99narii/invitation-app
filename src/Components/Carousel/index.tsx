@@ -58,7 +58,7 @@ export default function CaptionCarousel() {
   ]
 
   return (
-    <Box position={'relative'} height={'100vh'} width={'100vw'} overflow={'hidden'} >
+    <Box position={'relative'} width={'100vw'} overflow={'hidden'} >
       <link
         rel="stylesheet"
         type="text/css"
@@ -102,7 +102,7 @@ export default function CaptionCarousel() {
             minHeight={'600'}
             position="relative"
             top={top}
-            backgroundPosition={'center'}
+            //backgroundPosition={'center'}
             backgroundRepeat="no-repeat"
             backgroundSize="contain" 
             backgroundImage={`url(${card.image})`}>
@@ -126,9 +126,6 @@ export default function CaptionCarousel() {
           </Box>
         ))}
       </Slider>
-      <div>
-        신랑 유성래
-      </div>
     </Box>
   )
 }
