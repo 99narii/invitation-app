@@ -58,7 +58,7 @@ export default function CaptionCarousel() {
   ]
 
   return (
-    <Box position={'relative'} width={'100vw'} overflow={'hidden'} >
+    <Box position={'relative'} margin={'0 auto'} width={'100%'} overflow={'hidden'} >
       <link
         rel="stylesheet"
         type="text/css"
@@ -100,9 +100,12 @@ export default function CaptionCarousel() {
             key={index}
             height={'auto'} 
             minHeight={'600'}
+            margin={'0 auto'}
+            width={'100vw'}
             position="relative"
             top={top}
-            //backgroundPosition={'center'}
+            
+            backgroundPosition={'center top'}
             backgroundRepeat="no-repeat"
             backgroundSize="contain" 
             backgroundImage={`url(${card.image})`}>
@@ -112,6 +115,7 @@ export default function CaptionCarousel() {
                 spacing={6}
                 w={'full'}
                 maxW={'lg'}
+                margin={'0 auto'}
                 position="absolute"
                 top="top"
                 transform="translate(0, -50%)">
