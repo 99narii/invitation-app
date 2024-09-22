@@ -1,6 +1,13 @@
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$MAX_WIDTH: 600px;
+@font-face {
+    font-family: 'MaruBuri';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+  }
+  
+
+$primary-color: #9b819b;
+$FONT_COLOR: #6b5a6b;
+$MAX_WIDTH: 486px;
 
 $BLUE_50: #E0F2F1;
 $BLUE_100: #CFD8DC;
@@ -22,4 +29,4 @@ $NEUTRAL_500: #9E9E9E;
 $NEUTRAL_600: #757575;
 $NEUTRAL_700: #616161;
 $NEUTRAL_800: #424242;
-$NEUTRAL_900: #212121;
+$NEUTRAL_900: #2e2e2e;

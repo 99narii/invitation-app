@@ -16,6 +16,9 @@ import Main1 from '../../Assets/Images/main1.png'
 import Main2 from '../../Assets/Images/main2.png'
 import Main3 from '../../Assets/Images/main3.png'
 import Main4 from '../../Assets/Images/main4.png'
+import Main5 from '../../Assets/Images/main5.png'
+import Main6 from '../../Assets/Images/main6.png'
+import Main7 from '../../Assets/Images/main7.png'
 
 
 const settings = {
@@ -54,7 +57,22 @@ export default function CaptionCarousel() {
         title: '',
         text: "",
         image: Main4,
-      },
+    },
+    {
+      title: '',
+      text: "",
+      image: Main5,
+    },
+    {
+      title: '',
+      text: "",
+      image: Main6,
+    },
+    {
+        title: '',
+        text: "",
+        image: Main7,
+    },
   ]
 
   return (
