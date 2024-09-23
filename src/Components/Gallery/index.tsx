@@ -69,7 +69,7 @@ const Gallery: React.FC = () => {
   const thumbnailSettings = {
     dots: false,
     infinite: false,
-    speed: 700,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: false,

@@ -56,4 +56,7 @@
 .App .text > p {
   font-size: 13px;
   margin: 3rem;
+}
+.App .calendar_section {
+  margin: 5rem 0;
 }/*# sourceMappingURL=style.css.map */

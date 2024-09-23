@@ -30,8 +30,11 @@ function App() {
           함께 해주시면 감사하겠습니다.
           <p>- 신랑 유성래, 신부 김나희 올림</p>
         </div>
-        <Calendar />
+        <div>Gallery</div>
         <Gallery />
+        <section className='calendar_section'>
+          <Calendar />
+        </section>
       </div>
     </ChakraProvider>
   );
