@@ -89,7 +89,7 @@ const Gallery: React.FC = () => {
         </Slider>
       </div>
       <div className="thumbnails">
-      <button onClick={prevSlide} className="slider-button prev-button">◁</button>
+      {/* <button onClick={prevSlide} className="slider-button prev-button">◁</button> */}
 
         <Slider ref={thumbnailRef} {...thumbnailSettings}>
           {images.map((image, index) => (
