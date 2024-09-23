@@ -34,32 +34,32 @@ const Gallery: React.FC = () => {
       sliderRef.current.slickGoTo(index);
     }
     if (thumbnailRef.current) {
-      thumbnailRef.current.slickGoTo(0); // 썸네일 슬라이드를 항상 첫 번째로 이동
+      thumbnailRef.current.slickGoTo(index);
     }
   };
 
   const handleAfterChange = (current: number) => {
     if (thumbnailRef.current) {
-      thumbnailRef.current.slickGoTo(current); // 현재 슬라이드에 맞춰 썸네일 이동
+      thumbnailRef.current.slickGoTo(current);
     }
   };
 
-  const nextThumbnailSlide = () => {
-    if (thumbnailRef.current) {
-      thumbnailRef.current.slickNext();
+  const nextSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
     }
   };
 
-  const prevThumbnailSlide = () => {
-    if (thumbnailRef.current) {
-      thumbnailRef.current.slickPrev();
+  const prevSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
     }
   };
 
   const settings = {
     dots: false,
     infinite: true,
-    speed: 700,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: handleAfterChange,
@@ -69,10 +69,11 @@ const Gallery: React.FC = () => {
   const thumbnailSettings = {
     dots: false,
     infinite: false,
-    speed: 300,
+    speed: 700,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: false,
+    centerPadding: '0px',
     initialSlide: 0,
   };
 
@@ -88,7 +89,8 @@ const Gallery: React.FC = () => {
         </Slider>
       </div>
       <div className="thumbnails">
-        {/* <button onClick={prevThumbnailSlide} className="slider-button prev-button">◀</button> */}
+      {/* <button onClick={prevSlide} className="slider-button prev-button">◁</button> */}
+
         <Slider ref={thumbnailRef} {...thumbnailSettings}>
           {images.map((image, index) => (
             <div key={index} className="thumbnail" onClick={() => handleThumbnailClick(image, index)}>
@@ -96,7 +98,8 @@ const Gallery: React.FC = () => {
             </div>
           ))}
         </Slider>
-        {/* <button onClick={nextThumbnailSlide} className="slider-button next-button">▶</button> */}
+        {/* <button onClick={nextSlide} className="slider-button next-button">▶</button> */}
+
       </div>
     </div>
   );
