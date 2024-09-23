@@ -9,7 +9,7 @@ const DAY_LIST = ['일', '월', '화', '수', '목', '금', '토'];
 
 const Calendar: React.FC = () => {
   // 초기값을 2025년 1월 1일로 설정
-  const [currentDate, setCurrentDate] = React.useState(new Date(2025, 0, 1)); // 2025년 1월 1일
+  const [currentDate] = React.useState(new Date(2025, 0, 1));
   const totalMonthDays = getDaysInMonth(currentDate);
 
   // 이전 달의 빈 칸 수 계산

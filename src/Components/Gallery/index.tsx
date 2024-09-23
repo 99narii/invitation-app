@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
-import './style.scss'; // SCSS 파일을 불러옵니다.
+import './style.scss';
 
 const images = [
   '/imgs/gallery/1.jpg',

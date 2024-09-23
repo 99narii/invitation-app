@@ -10,7 +10,6 @@ import {
   Text,
   Container,
 } from '@chakra-ui/react'
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 import Slider from 'react-slick'
 import Main1 from '../../Assets/Images/main1.png'
 import Main2 from '../../Assets/Images/main2.png'
