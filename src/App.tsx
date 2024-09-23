@@ -32,7 +32,6 @@ function App() {
         </div>
         <Calendar />
         <Gallery />
-        <p>Learn React</p>
       </div>
     </ChakraProvider>
   );

@@ -25,8 +25,28 @@
   }
 
   .thumbnails {
-    width: 100%; // 썸네일의 너비
-
+    width: 100%;
+    .slider-button {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      padding: 10px;
+      display: flex;
+    
+      &.prev-button {
+        left: 10px;
+      }
+    
+      &.next-button {
+        right: 10px;
+      }
+    
+      &:hover {
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+    
     .thumbnail {
       cursor: pointer;
       width: 100px !important;

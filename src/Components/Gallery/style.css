@@ -26,6 +26,23 @@
 .gallery .thumbnails {
   width: 100%;
 }
+.gallery .thumbnails .slider-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  display: flex;
+}
+.gallery .thumbnails .slider-button.prev-button {
+  left: 10px;
+}
+.gallery .thumbnails .slider-button.next-button {
+  right: 10px;
+}
+.gallery .thumbnails .slider-button:hover {
+  background: rgb(255, 255, 255);
+}
 .gallery .thumbnails .thumbnail {
   cursor: pointer;
   width: 100px !important;

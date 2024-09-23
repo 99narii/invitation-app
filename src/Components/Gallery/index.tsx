@@ -3,24 +3,24 @@ import Slider from 'react-slick';
 import './style.scss';
 
 const images = [
-  'imgs/gallery/1.jpg',
-  'imgs/gallery/2.jpg',
-  'imgs/gallery/3.jpg',
-  'imgs/gallery/4.jpg',
-  'imgs/gallery/5.jpg',
-  'imgs/gallery/6.jpg',
-  'imgs/gallery/7.jpg',
-  'imgs/gallery/8.jpg',
-  'imgs/gallery/9.jpg',
-  'imgs/gallery/10.jpg',
-  'imgs/gallery/11.jpg',
-  'imgs/gallery/12.jpg',
-  'imgs/gallery/13.jpg',
-  'imgs/gallery/14.jpg',
-  'imgs/gallery/15.jpg',
-  'imgs/gallery/16.jpg',
-  'imgs/gallery/17.jpg',
-  'imgs/gallery/18.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/1.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/2.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/3.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/4.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/5.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/6.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/7.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/8.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/9.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/10.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/11.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/12.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/13.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/14.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/15.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/16.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/17.jpg',
+  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/18.jpg',
 ];
 
 const Gallery: React.FC = () => {
@@ -34,32 +34,32 @@ const Gallery: React.FC = () => {
       sliderRef.current.slickGoTo(index);
     }
     if (thumbnailRef.current) {
-      thumbnailRef.current.slickGoTo(index);
+      thumbnailRef.current.slickGoTo(0); // 썸네일 슬라이드를 항상 첫 번째로 이동
     }
   };
 
   const handleAfterChange = (current: number) => {
     if (thumbnailRef.current) {
-      thumbnailRef.current.slickGoTo(current);
+      thumbnailRef.current.slickGoTo(current); // 현재 슬라이드에 맞춰 썸네일 이동
     }
   };
 
-  const nextSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
+  const nextThumbnailSlide = () => {
+    if (thumbnailRef.current) {
+      thumbnailRef.current.slickNext();
     }
   };
 
-  const prevSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
+  const prevThumbnailSlide = () => {
+    if (thumbnailRef.current) {
+      thumbnailRef.current.slickPrev();
     }
   };
 
   const settings = {
     dots: false,
     infinite: true,
-    speed: 300,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: handleAfterChange,
@@ -69,11 +69,10 @@ const Gallery: React.FC = () => {
   const thumbnailSettings = {
     dots: false,
     infinite: false,
-    speed: 700,
+    speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0px',
+    centerMode: false,
     initialSlide: 0,
   };
 
@@ -89,8 +88,7 @@ const Gallery: React.FC = () => {
         </Slider>
       </div>
       <div className="thumbnails">
-      {/* <button onClick={prevSlide} className="slider-button prev-button">◁</button> */}
-
+        {/* <button onClick={prevThumbnailSlide} className="slider-button prev-button">◀</button> */}
         <Slider ref={thumbnailRef} {...thumbnailSettings}>
           {images.map((image, index) => (
             <div key={index} className="thumbnail" onClick={() => handleThumbnailClick(image, index)}>
@@ -98,8 +96,7 @@ const Gallery: React.FC = () => {
             </div>
           ))}
         </Slider>
-        {/* <button onClick={nextSlide} className="slider-button next-button">▶</button> */}
-
+        {/* <button onClick={nextThumbnailSlide} className="slider-button next-button">▶</button> */}
       </div>
     </div>
   );
