@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/invitation-app/static/css/main.ff7a17a0.css",
+    "main.js": "/invitation-app/static/js/main.9fa57fa4.js",
+    "static/js/453.ed467f83.chunk.js": "/invitation-app/static/js/453.ed467f83.chunk.js",
+    "static/media/main2.png": "/invitation-app/static/media/main2.3fdaa4723637f33cc29d.png",
+    "static/media/main7.png": "/invitation-app/static/media/main7.cb01ed2551fa96fc96d4.png",
+    "static/media/main6.png": "/invitation-app/static/media/main6.9130f06895749064233a.png",
+    "static/media/main5.png": "/invitation-app/static/media/main5.37b542215e7d21ada7bd.png",
+    "static/media/main4.png": "/invitation-app/static/media/main4.a230c35a38db9264f0a7.png",
+    "static/media/main1.png": "/invitation-app/static/media/main1.0e26ce922bf14928ec7a.png",
+    "static/media/main3.png": "/invitation-app/static/media/main3.035f9fc83c6be215e288.png",
+    "static/media/slick.svg": "/invitation-app/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/invitation-app/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/invitation-app/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/invitation-app/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/invitation-app/index.html",
+    "main.ff7a17a0.css.map": "/invitation-app/static/css/main.ff7a17a0.css.map",
+    "main.9fa57fa4.js.map": "/invitation-app/static/js/main.9fa57fa4.js.map",
+    "453.ed467f83.chunk.js.map": "/invitation-app/static/js/453.ed467f83.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff7a17a0.css",
+    "static/js/main.9fa57fa4.js"
+  ]
+}
