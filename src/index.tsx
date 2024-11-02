@@ -5,9 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Target container is not a DOM element");
+}
+
+const root = ReactDOM.createRoot(rootElement);
+root.render(<App />);
+
 root.render(
   <ChakraProvider>
     <React.StrictMode>

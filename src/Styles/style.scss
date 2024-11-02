@@ -1,5 +1,24 @@
 @import './variables';
 
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+  }
+  
 .App {
     font-family: 'MaruBuri';    
     font-weight: 400;
@@ -16,6 +35,14 @@
     line-height: 180%;
     color: $NEUTRAL_900;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    >section {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
     .name {
         width: 100%;
         display: flex;
@@ -24,6 +51,11 @@
         gap: 10px;
         font-size: 20px;
         margin: 0 0 20px 0;
+        // text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 20px;
+      
         >i {
             background-image: url('../Assets/Images/heart_icon.png');
             display: block;

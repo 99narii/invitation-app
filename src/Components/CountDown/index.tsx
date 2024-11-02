@@ -35,10 +35,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
   return (
     <div className="countDown">
-      {timeLeft.days} Days
-      {timeLeft.hours}:
-      {timeLeft.minutes}:
-      {timeLeft.seconds}
+      {timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초
     </div>
   );
 };
