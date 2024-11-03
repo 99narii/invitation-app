@@ -1,7 +1,8 @@
+import './style.scss';
 function Footer() {
     return (
-      <div className="App">
-        푸터
+      <div className="footer">
+        design by @99narii
       </div>
     );
   }

@@ -9,6 +9,7 @@ import { Map } from './Components/Map';
 import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './config';
 import AccordionAccount from './Components/Accordion';
 import ToastNotification from './Components/Modal';
+import Footer from './Components/Footer';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -129,6 +130,7 @@ function App() {
           <span style={{ cursor: 'pointer' }} onClick={copyAddress}>서울특별시 광진구 자양동 2-2</span>
         </div>
       </div>
+      <Footer/>
     </ChakraProvider>
   );
 }
