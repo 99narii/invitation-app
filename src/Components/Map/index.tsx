@@ -7,12 +7,20 @@ export const Map: React.FC = () => {
   useEffect(() => {
     const loadMap = () => {
       if (container.current) {
-        const position = new (window as any).kakao.maps.LatLng(33.450701, 126.570667);
+        const position = new (window as any).kakao.maps.LatLng(37.53916746934834, 127.06966568023567);
         const options = {
           center: position, // 지도의 중심 좌표
           level: 3, // 지도 확대 레벨
         };
-        new (window as any).kakao.maps.Map(container.current, options);
+        
+        // 지도 생성
+        const map = new (window as any).kakao.maps.Map(container.current, options);
+
+        // 마커 생성
+        const marker = new (window as any).kakao.maps.Marker({
+          position: position, // 마커 위치
+          map: map, // 마커를 표시할 지도
+        });
       }
     };
 
