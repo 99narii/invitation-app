@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/invitation-app/static/css/main.cb41d593.css",
-    "main.js": "/invitation-app/static/js/main.ca8a2ad8.js",
+    "main.js": "/invitation-app/static/js/main.a24b1b54.js",
     "static/js/453.ed467f83.chunk.js": "/invitation-app/static/js/453.ed467f83.chunk.js",
     "static/media/main2.png": "/invitation-app/static/media/main2.3fdaa4723637f33cc29d.png",
     "static/media/main7.png": "/invitation-app/static/media/main7.cb01ed2551fa96fc96d4.png",
@@ -16,11 +16,11 @@
     "index.html": "/invitation-app/index.html",
     "static/media/slick.woff": "/invitation-app/static/media/slick.295183786cd8a1389865.woff",
     "main.cb41d593.css.map": "/invitation-app/static/css/main.cb41d593.css.map",
-    "main.ca8a2ad8.js.map": "/invitation-app/static/js/main.ca8a2ad8.js.map",
+    "main.a24b1b54.js.map": "/invitation-app/static/js/main.a24b1b54.js.map",
     "453.ed467f83.chunk.js.map": "/invitation-app/static/js/453.ed467f83.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cb41d593.css",
-    "static/js/main.ca8a2ad8.js"
+    "static/js/main.a24b1b54.js"
   ]
 }
