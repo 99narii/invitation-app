@@ -35,7 +35,7 @@ const AccordionAccount = () => {
       });
   };
   return (
-    <Accordion defaultIndex={[0]} allowMultiple>
+    <Accordion defaultIndex={[]} allowMultiple>
       {items.map((item, index) => (
         <AccordionItem key={index}>
           <AccordionButton>
