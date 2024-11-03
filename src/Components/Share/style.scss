@@ -1,0 +1,16 @@
+@import '../../Styles/variables.scss';
+
+.share {
+    width: 100%;
+    .share_btn {
+        width: 100%;
+        background-color: $primary-color;
+        padding: 1rem;
+        font-weight: 500;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}

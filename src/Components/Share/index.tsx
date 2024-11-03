@@ -1,5 +1,8 @@
 import React from "react";
-
+import './style.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShare } from "@fortawesome/free-solid-svg-icons";
+import ToastNotification from "../Modal";
 import {
   KAKAOTALK_API_TOKEN,
   KAKAOTALK_SHARE_IMAGE,
@@ -9,6 +12,18 @@ import {
 } from "../../config";
 
 const Share = () => {
+  const { showToast } = ToastNotification();
+  const copyShare = () => {
+    const url = window.location.href; 
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          showToast('링크가 복사되었습니다.', '#9b819b');
+        })
+        .catch(err => {
+          console.error('링크 복사 실패');
+        });
+    };
+
 //   const createKakaoButton = () => {
 //     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
 //     if (window.Kakao) {
@@ -53,12 +68,12 @@ const Share = () => {
 
   return (
     <>
-        {/* 카카오톡으로 공유하기
-        <div
-          onClick={() => message.success("청첩장 링크가 복사되었습니다.")}
-        >
-          링크로 공유하기
-        </div> */}
+        <div className="share">
+          <button type="button" className="share_btn" onClick={copyShare}>
+          <FontAwesomeIcon icon={faShare} />
+
+            공유하기</button>
+        </div>
     </>
   );
 };

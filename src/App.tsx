@@ -11,6 +11,7 @@ import AccordionAccount from './Components/Accordion';
 import ToastNotification from './Components/Modal';
 import Footer from './Components/Footer';
 import Location from './Components/Location';
+import Share from './Components/Share';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -118,9 +119,9 @@ function App() {
           <Map />
           <Location />
         </section>
-        <div>
-
-        </div>
+        <section>
+        <Share />
+        </section>
       </div>
       <Footer/>
     </ChakraProvider>
