@@ -27,7 +27,7 @@ function App() {
     if (scrollDisabled) return;
 
     const delta = event.deltaY;
-    const scrollSensitivity = 0.5; // 스크롤 민감도 조정
+    const scrollSensitivity = 0.3; // 스크롤 민감도 조정
 
     event.preventDefault(); // 기본 스크롤 동작 방지
 
@@ -78,7 +78,7 @@ function App() {
     checkVisibility();
     return () => {
       window.removeEventListener('scroll', checkVisibility);
-      window.removeEventListener('wheel', handleScroll); // 정리
+      window.removeEventListener('wheel', handleScroll);
     };
   }, [scrollDisabled]);
 
