@@ -27,7 +27,7 @@ const ToastNotification = () => {
             </Text>
         </Box>
       ),
-      duration: 1500,
+      duration: 2000,
       isClosable: true,
     });
   };
