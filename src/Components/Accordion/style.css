@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "MaruBuri";
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
+.chakra-accordion {
+  width: 100% !important;
+}
+.chakra-accordion button {
+  padding: 13px 30px;
+}
+.chakra-accordion .accordionTitle {
+  font-weight: 600;
+}
+
+.accountContainer {
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.accountContainer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #9b819b;
+  border: 1px solid #9b819b;
+  border-radius: 30px;
+  width: 90%;
+}
+.accountContainer button:active {
+  background-color: white;
+  color: #9b819b !important;
+}
+.accountContainer .css-ez23ye:hover {
+  background: white;
+  color: #9b819b !important;
+}/*# sourceMappingURL=style.css.map */

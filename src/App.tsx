@@ -7,6 +7,7 @@ import Calendar from './Components/Calendar';
 import Gallery from './Components/Gallery';
 import { Map } from './Components/Map';
 import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './config';
+import AccordionAccount from './Components/Accordion';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -109,13 +110,17 @@ function App() {
           함께 해주시면 감사하겠습니다.
           <p>- 신랑 유성래, 신부 김나희 올림</p>
         </div>
-        <div ref={galleryRef}>Gallery</div>
+        <div ref={galleryRef} className='section_title'>Gallery</div>
         <Gallery />
         <section className='calendar_section'>
           <Calendar className={`fade-in ${calendarVisible ? 'visible' : ''}`} ref={calendarRef} />
         </section>
         <section>
-          <div>오시는 길</div>
+          <div className='section_title'>마음 전하실 곳</div>
+          <AccordionAccount />
+        </section>
+        <section>
+          <div className='section_title'>오시는 길</div>
           <Map />
         </section>
         <div>

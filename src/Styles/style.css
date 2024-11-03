@@ -40,6 +40,9 @@
   color: #2e2e2e;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.App .section_title {
+  margin: 1rem;
+}
 .App > section {
   width: 100%;
   margin: 0 auto;

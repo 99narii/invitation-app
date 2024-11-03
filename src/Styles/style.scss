@@ -35,6 +35,9 @@
     line-height: 180%;
     color: $NEUTRAL_900;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .section_title {
+        margin: 1rem;
+    }
     >section {
         width: 100%;
         margin: 0 auto;
