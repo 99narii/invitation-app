@@ -25,9 +25,10 @@ const AccordionAccount = () => {
   const { showToast } = ToastNotification();
 
   const copyToClipboard = (label, account) => {
-    navigator.clipboard.writeText(account)
+    const formattedAccount = account.replace(/-/g, ''); 
+    navigator.clipboard.writeText(formattedAccount)
       .then(() => {
-        showToast(`${label}가 복사되었습니다.`, "#9b819b"); // label 사용
+        showToast(`${label}가 복사되었습니다.`, "#9b819b");
       })
       .catch((err) => {
         console.error('복사 실패:', err);

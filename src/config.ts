@@ -9,9 +9,9 @@ export const WEDDING_LOCATION = "○○○웨딩, ○층 ○○홀";
 export const GROOM_NAME = "유성래";
 export const GROOM_ACCOUNT_NUMBER = "우리은행 1002-352-0023-28";
 export const GROOM_FATHER_NAME = "유인표";
-export const GROOM_FATHER_ACCOUNT_NUMBER = "○○은행 ***-***-******";
+export const GROOM_FATHER_ACCOUNT_NUMBER = "농협 351-0792-9481-13";
 export const GROOM_MOTHER_NAME = "이영희";
-export const GROOM_MOTHER_ACCOUNT_NUMBER = "○○은행 ***-***-******";
+export const GROOM_MOTHER_ACCOUNT_NUMBER = "우리은행 1002-134-523-366";
 
 export const BRIDE_NAME = "김나희";
 export const BRIDE_ACCOUNT_NUMBER = "하나은행 333-666-999-369";
