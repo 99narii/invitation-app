@@ -12,20 +12,35 @@ function App() {
   const [dateVisible, setDateVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [calendarVisible, setCalendarVisible] = useState(false);
-  const [scrollDisabled, setScrollDisabled] = useState(false); // 스크롤 비활성화 상태 추가
+  const [scrollDisabled, setScrollDisabled] = useState(false);
 
   const dateRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const calendarRef = useRef<HTMLDivElement | null>(null);
-  const galleryRef = useRef<HTMLDivElement | null>(null); // 갤러리 참조 추가
+  const galleryRef = useRef<HTMLDivElement | null>(null);
 
-  const handleScroll = () => {
-    if (scrollDisabled) return; // 스크롤 비활성화 상태일 때는 리턴
+  const handleScroll = (event: WheelEvent) => {
+    if (scrollDisabled) return;
 
+    const delta = event.deltaY;
+    const scrollSensitivity = 0.5; // 스크롤 민감도 조정
+
+    event.preventDefault(); // 기본 스크롤 동작 방지
+
+    const currentScroll = window.scrollY;
+    const newScroll = currentScroll + delta * scrollSensitivity;
+
+    window.scrollTo({
+      top: newScroll,
+      behavior: 'smooth',
+    });
+  };
+
+  const checkVisibility = () => {
     const dateElement = dateRef.current;
     const textElement = textRef.current;
     const calendarElement = calendarRef.current;
-    const galleryElement = galleryRef.current; // 갤러리 참조
+    const galleryElement = galleryRef.current;
 
     if (dateElement) {
       const dateInView = dateElement.getBoundingClientRect().top < window.innerHeight && dateElement.getBoundingClientRect().bottom >= 0;
@@ -42,23 +57,24 @@ function App() {
       setCalendarVisible(calendarInView);
     }
 
-    // 갤러리 섹션에 도달했는지 체크
     if (galleryElement) {
       const galleryInView = galleryElement.getBoundingClientRect().top < window.innerHeight && galleryElement.getBoundingClientRect().bottom >= 0;
       if (galleryInView) {
-        setScrollDisabled(true); // 갤러리에서 스크롤 비활성화
+        setScrollDisabled(true);
         setTimeout(() => {
-          setScrollDisabled(false); // 일정 시간 후 스크롤 활성화
-        }, 1000); // 1초 후 스크롤 활성화
+          setScrollDisabled(false); 
+        }, 1000);
       }
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // 초기 렌더링 시 상태 체크
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('wheel', handleScroll); // 스크롤 이벤트 리스너 추가
+    checkVisibility();
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', checkVisibility);
+      window.removeEventListener('wheel', handleScroll); // 정리
     };
   }, [scrollDisabled]);
 
