@@ -1,5 +1,7 @@
 import React from 'react';
 import { useToast, Box, Text } from '@chakra-ui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 type ToastStatus = "info" | "warning" | "success" | "error" | "loading";
 
@@ -13,10 +15,16 @@ const ToastNotification = () => {
           color="white"
           p={3}
           bg={backgroundColor}
-          borderRadius="md"
+          borderRadius="30px"
           mb={4}
+          border="1px"
+          borderColor="#EEEEEE"
+          textAlign='center'
         >
-          <Text>{description}</Text>
+            <Text>
+                <FontAwesomeIcon icon={faCircleCheck} style={{ marginRight: '8px' }} /> 
+                <span>{description}</span>
+            </Text>
         </Box>
       ),
       duration: 1500,
