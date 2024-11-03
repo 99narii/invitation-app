@@ -36,6 +36,8 @@ const AccordionAccount = () => {
       });
   };
   return (
+    <div className='account'>
+    <div className='section_title'>마음 전하실 곳</div>
     <Accordion defaultIndex={[]} allowMultiple>
       {items.map((item, index) => (
         <AccordionItem key={index}>
@@ -60,6 +62,7 @@ const AccordionAccount = () => {
         </AccordionItem>
       ))}
     </Accordion>
+    </div>
   );
 };
 

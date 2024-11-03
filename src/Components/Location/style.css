@@ -1,11 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@font-face {
+  font-family: "MaruBuri";
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+}
 .location {
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  width: 90%;
+  width: 95%;
+  border-radius: 1rem;
   justify-content: center;
   align-items: center;
+  background-color: #f7f2f7;
+  padding: 10% 3%;
 }
 .location > div {
   width: 90%;
@@ -20,7 +29,7 @@
   flex-wrap: wrap;
 }
 .location > div.bus > span {
-  width: 47%;
+  width: 46%;
 }
 .location > div > svg {
   width: 20px;

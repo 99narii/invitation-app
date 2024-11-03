@@ -111,7 +111,6 @@ function App() {
           <Calendar className={`fade-in ${calendarVisible ? 'visible' : ''}`} ref={calendarRef} />
         </section>
         <section>
-          <div className='section_title'>마음 전하실 곳</div>
           <AccordionAccount />
         </section>
         <section>
