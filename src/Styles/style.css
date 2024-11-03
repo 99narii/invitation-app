@@ -39,6 +39,7 @@
   line-height: 180%;
   color: #2e2e2e;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding-bottom: 4rem;
 }
 .App .section_title {
   margin: 1rem;

@@ -10,6 +10,7 @@ import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './config';
 import AccordionAccount from './Components/Accordion';
 import ToastNotification from './Components/Modal';
 import Footer from './Components/Footer';
+import Location from './Components/Location';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -82,15 +83,6 @@ function App() {
     };
   }, [scrollDisabled]);
 
-  const copyAddress = () => {
-    navigator.clipboard.writeText('서울특별시 광진구 자양동 2-2')
-      .then(() => {
-        showToast('주소가 복사되었습니다.', '#9b819b');
-      })
-      .catch(err => {
-        console.error('주소 복사 실패');
-      });
-  };
 
   return (
     <ChakraProvider>
@@ -125,9 +117,10 @@ function App() {
         <section>
           <div className='section_title'>오시는 길</div>
           <Map />
+          <Location />
         </section>
         <div>
-          <span style={{ cursor: 'pointer' }} onClick={copyAddress}>서울특별시 광진구 자양동 2-2</span>
+
         </div>
       </div>
       <Footer/>
