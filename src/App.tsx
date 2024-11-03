@@ -8,12 +8,14 @@ import Gallery from './Components/Gallery';
 import { Map } from './Components/Map';
 import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from './config';
 import AccordionAccount from './Components/Accordion';
+import ToastNotification from './Components/Modal';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [calendarVisible, setCalendarVisible] = useState(false);
   const [scrollDisabled, setScrollDisabled] = useState(false);
+  const { showToast } = ToastNotification();
 
   const dateRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
@@ -82,7 +84,7 @@ function App() {
   const copyAddress = () => {
     navigator.clipboard.writeText('서울특별시 광진구 자양동 2-2')
       .then(() => {
-        alert('주소가 복사되었습니다!');
+        showToast('주소가 복사되었습니다.', '#9b819b');
       })
       .catch(err => {
         console.error('주소 복사 실패');

@@ -19,18 +19,21 @@ import {
   BRIDE_ACCOUNT_NUMBER,
 } from '../../config'; 
 import './style.scss';
+import ToastNotification from '../Modal';
 
 const AccordionAccount = () => {
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text)
+  const { showToast } = ToastNotification();
+
+  const copyToClipboard = (label, account) => {
+    navigator.clipboard.writeText(account)
       .then(() => {
-        alert('복사되었습니다: ' + text);
+        showToast(`${label}가 복사되었습니다.`, "#9b819b"); // label 사용
       })
       .catch((err) => {
         console.error('복사 실패:', err);
+        showToast("클립보드에 복사하는 데 문제가 발생했습니다.", "green.500");
       });
   };
-
   return (
     <Accordion defaultIndex={[0]} allowMultiple>
       {items.map((item, index) => (
@@ -46,7 +49,9 @@ const AccordionAccount = () => {
               {item.text.map((textItem, idx) => (
                 <div key={idx}>
                   <span>{textItem.label}</span>
-                  <Button onClick={() => copyToClipboard(textItem.account)}>{textItem.account}</Button>
+                  <Button onClick={() => copyToClipboard(textItem.label, textItem.account)}>
+                    {textItem.account}
+                  </Button>
                 </div>
               ))}
             </div>
@@ -57,7 +62,6 @@ const AccordionAccount = () => {
   );
 };
 
-// items 배열에서 동적으로 값을 삽입
 const items = [
   {
     value: "a",
