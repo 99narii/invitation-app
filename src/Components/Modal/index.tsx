@@ -20,6 +20,7 @@ const ToastNotification = () => {
           border="1px"
           borderColor="#EEEEEE"
           textAlign='center'
+          fontSize={13}
         >
             <Text>
                 <FontAwesomeIcon icon={faCircleCheck} style={{ marginRight: '8px' }} /> 

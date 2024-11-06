@@ -38,6 +38,7 @@
   border: 1px solid #9b819b;
   border-radius: 30px;
   width: 90%;
+  font-weight: 400;
 }
 .accountContainer button:active {
   background-color: white;
