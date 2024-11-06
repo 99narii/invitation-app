@@ -12,6 +12,7 @@ import ToastNotification from './Components/Modal';
 import Footer from './Components/Footer';
 import Location from './Components/Location';
 import Share from './Components/Share';
+import { Music } from './Components/Music';
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -88,6 +89,7 @@ function App() {
   return (
     <ChakraProvider>
       <div className="App">
+        <Music/>
         <Countdown targetDate="2025-01-04T18:30:00" />
         <Carousel />
         <div className={`name fade-up fade-in ${dateVisible ? 'visible' : ''}`} ref={dateRef}>
