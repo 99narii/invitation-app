@@ -54,6 +54,9 @@
   flex-direction: column;
   align-items: center;
 }
+.App > section .subTitle {
+  font-size: 12px;
+}
 .App .name {
   width: 100%;
   display: flex;

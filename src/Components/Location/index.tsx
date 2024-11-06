@@ -18,7 +18,7 @@ function Location() {
     return (
       <div className="location">
         <div onClick={copyAddress}>
-            <FontAwesomeIcon icon={faCar} size="2x" />
+            <FontAwesomeIcon icon={faCar} size="2x" style={{color: '#6b5a6b',}} />
             <span><b>서울특별시 광진구 자양동 2-2</b></span>
         </div>
         <div className='car'>
@@ -26,12 +26,12 @@ function Location() {
         </div>
 
         <div>
-            <FontAwesomeIcon icon={faTrainSubway} size="2x" />
-            <span>지하철 2호선, 7호선 <b>건대입구역 5번 출구 30m</b></span>
+            <FontAwesomeIcon icon={faTrainSubway} size="2x" style={{color: '#6b5a6b',}}/>
+            <span>지하철 2호선, 7호선 건대입구역 5번 출구 30m</span>
         </div>
         <div >
-            <FontAwesomeIcon icon={faBusSimple} size="2x" />
-            <span><b>건대로데오거리입구</b> 정류장 하차</span>
+            <FontAwesomeIcon icon={faBusSimple} size="2x" style={{color: '#6b5a6b',}}/>
+            <span>건대로데오거리입구 정류장 하차</span>
         </div>
         <div className='bus'>
             <span>간선버스 : 240, 721</span>

@@ -13,6 +13,8 @@ import Footer from './Components/Footer';
 import Location from './Components/Location';
 import Share from './Components/Share';
 import { Music } from './Components/Music';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [dateVisible, setDateVisible] = useState(false);
@@ -115,6 +117,11 @@ function App() {
         </section>
         <section>
           <AccordionAccount />
+          <p className='subTitle'>환경을 생각하는 마음으로<br/>축하 화환은 마음만 받겠습니다.</p>
+          
+        </section>
+        <section>
+        <FontAwesomeIcon icon={faSeedling} style={{color: "#307853",}} />
         </section>
         <section>
           <div className='section_title'>오시는 길</div>

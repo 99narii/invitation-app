@@ -34,11 +34,11 @@ export const Music: React.FC = () => {
         <div className="musicPlay">
             {isPlaying ? (
                 <button onClick={handlePause}>
-                    <FontAwesomeIcon icon={faPause} />
+                    <FontAwesomeIcon icon={faPause} style={{color: '#6b5a6b',}} />
                 </button>
             ) : (
                 <button onClick={handlePlay}>
-                    <FontAwesomeIcon icon={faPlay} />
+                    <FontAwesomeIcon icon={faPlay} style={{color: '#6b5a6b',}}/>
                 </button>
             )}
             <audio ref={audioRef} autoPlay></audio>
