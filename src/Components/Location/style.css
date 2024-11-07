@@ -13,12 +13,12 @@
   justify-content: center;
   align-items: center;
   background-color: #f7f2f7;
-  padding: 10% 2%;
+  padding: 5% 2%;
 }
 .location > div {
   width: 90%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   text-align: left;
   gap: 1rem;
@@ -30,6 +30,25 @@
 .location > div.bus > span {
   width: 46%;
 }
+.location > div > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 0.6rem;
+  background-color: #9b819b;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  color: #fff;
+}
+.location > div > a > svg {
+  height: 16px;
+}
+.location > div > a:active {
+  background-color: #F5F5F5;
+  color: #6b5a6b;
+  transition: 0.9s;
+}
 .location > div > svg {
-  width: 20px;
+  width: 22px;
 }/*# sourceMappingURL=style.css.map */

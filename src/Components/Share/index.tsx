@@ -71,7 +71,6 @@ const Share = () => {
         <div className="share">
           <button type="button" className="share_btn" onClick={copyShare}>
           <FontAwesomeIcon icon={faShare} />
-
             공유하기</button>
         </div>
     </>

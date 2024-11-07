@@ -12,5 +12,10 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+        &:active {
+            background-color: $NEUTRAL_100;
+            color: $primary-color;
+            transition: 0.9s;
+        }
     }
 }

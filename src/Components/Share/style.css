@@ -17,4 +17,9 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+.share .share_btn:active {
+  background-color: #F5F5F5;
+  color: #9b819b;
+  transition: 0.9s;
 }/*# sourceMappingURL=style.css.map */

@@ -20,12 +20,16 @@ function App() {
   const [dateVisible, setDateVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [calendarVisible, setCalendarVisible] = useState(false);
+  const [locationVisible, setLocationVisible] = useState(false);
+
   const [scrollDisabled, setScrollDisabled] = useState(false);
   const { showToast } = ToastNotification();
 
   const dateRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const calendarRef = useRef<HTMLDivElement | null>(null);
+  const locationRef = useRef<HTMLDivElement | null>(null);
+
   const galleryRef = useRef<HTMLDivElement | null>(null);
 
   const handleScroll = (event: WheelEvent) => {
@@ -49,6 +53,8 @@ function App() {
     const dateElement = dateRef.current;
     const textElement = textRef.current;
     const calendarElement = calendarRef.current;
+    const locationElement = locationRef.current;
+
     const galleryElement = galleryRef.current;
 
     if (dateElement) {
@@ -65,6 +71,12 @@ function App() {
       const calendarInView = calendarElement.getBoundingClientRect().top < window.innerHeight && calendarElement.getBoundingClientRect().bottom >= 0;
       setCalendarVisible(calendarInView);
     }
+
+    if (locationElement) {
+      const locationInView = locationElement.getBoundingClientRect().top < window.innerHeight && locationElement.getBoundingClientRect().bottom >= 0;
+      setLocationVisible(locationInView);
+    }
+
 
     if (galleryElement) {
       const galleryInView = galleryElement.getBoundingClientRect().top < window.innerHeight && galleryElement.getBoundingClientRect().bottom >= 0;
@@ -126,7 +138,7 @@ function App() {
         <section>
           <div className='section_title'>오시는 길</div>
           <Map />
-          <Location />
+          <Location className={`fade-in ${locationVisible ? 'visible' : ''}`} ref={locationRef} />
         </section>
         <section>
         <Share />
