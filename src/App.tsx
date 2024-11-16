@@ -36,17 +36,17 @@ function App() {
     if (scrollDisabled) return;
 
     const delta = event.deltaY;
-    const scrollSensitivity = 0.3; // 스크롤 민감도 조정
+    const scrollSensitivity = 0.3;
 
-    event.preventDefault(); // 기본 스크롤 동작 방지
+    event.preventDefault();
 
     const currentScroll = window.scrollY;
-    const newScroll = currentScroll + delta * scrollSensitivity;
+    // const newScroll = currentScroll + delta * scrollSensitivity;
 
-    window.scrollTo({
-      top: newScroll,
-      behavior: 'smooth',
-    });
+    // window.scrollTo({
+    //   top: newScroll,
+    //   behavior: 'smooth',
+    // });
   };
 
   const checkVisibility = () => {

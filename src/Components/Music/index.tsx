@@ -14,7 +14,7 @@ export const Music: React.FC = () => {
                 await audioRef.current.play();
                 setIsPlaying(true);
             } catch (error) {
-                console.error("Audio playback error:", error);
+                console.error("음악 재생 오류:", error);
             }
         }
     };
