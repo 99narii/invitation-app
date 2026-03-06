@@ -11,13 +11,13 @@ import {
   Container,
 } from '@chakra-ui/react'
 import Slider from 'react-slick'
-import Main1 from '../../Assets/Images/main1.png'
-import Main2 from '../../Assets/Images/main2.png'
-import Main3 from '../../Assets/Images/main3.png'
-import Main4 from '../../Assets/Images/main4.png'
-import Main5 from '../../Assets/Images/main5.png'
-import Main6 from '../../Assets/Images/main6.png'
-import Main7 from '../../Assets/Images/main7.png'
+import Main1 from '../../Assets/Images/main1.webp'
+import Main2 from '../../Assets/Images/main2.webp'
+import Main3 from '../../Assets/Images/main3.webp'
+import Main4 from '../../Assets/Images/main4.webp'
+import Main5 from '../../Assets/Images/main5.webp'
+import Main6 from '../../Assets/Images/main6.webp'
+import Main7 from '../../Assets/Images/main7.webp'
 
 
 const settings = {

@@ -1,41 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './style.scss'
 interface CountdownProps {
   targetDate: string;
 }
 
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  const calculateTimeLeft = () => {
-    const difference = new Date(targetDate).getTime() - new Date().getTime();
-
-    let timeRemaining = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-
-    setTimeLeft(timeRemaining);
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      calculateTimeLeft();
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
+  const difference = new Date().getTime() - new Date(targetDate).getTime();
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
   return (
     <div className="countDown">
-      {timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초
+      함께한 지 {days}일
     </div>
   );
 };

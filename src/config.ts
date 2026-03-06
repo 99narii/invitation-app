@@ -6,7 +6,7 @@ export const KAKAOTALK_SHARE_IMAGE =
 export const WEDDING_DATE = "2025년 01월 04일, 토요일 저녁 6시 30분";
 export const WEDDING_LOCATION = "○○○웨딩, ○층 ○○홀";
 
-export const GROOM_NAME = "유성래";
+export const GROOM_NAME = "유도겸";
 export const GROOM_ACCOUNT_NUMBER = "우리은행 1002-352-0023-28";
 export const GROOM_FATHER_NAME = "유인표";
 export const GROOM_FATHER_ACCOUNT_NUMBER = "농협 351-0792-9481-13";

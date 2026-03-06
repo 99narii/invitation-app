@@ -104,7 +104,7 @@ function App() {
     <ChakraProvider>
       <div className="App">
         <Music/>
-        <Countdown targetDate="2025-01-04T18:30:00" />
+        <Countdown targetDate="2022-04-12T23:30:00" />
         <Carousel />
         <div className={`name fade-up fade-in ${dateVisible ? 'visible' : ''}`} ref={dateRef}>
           <span>{GROOM_NAME}</span><i></i><span>{BRIDE_NAME}</span>
@@ -120,7 +120,7 @@ function App() {
           든든한 가족으로 이제 하나가 되려합니다.<br />
           귀중한 시간 내어주시어 뜻 깊은 자리에<br />
           함께 해주시면 감사하겠습니다.
-          <p>- 신랑 유성래, 신부 김나희 올림</p>
+          <p>- 신랑 유도겸, 신부 김나희 올림</p>
         </div>
         <div ref={galleryRef} className='section_title'>Gallery</div>
         <Gallery />

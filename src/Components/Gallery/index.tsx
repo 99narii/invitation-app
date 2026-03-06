@@ -1,32 +1,76 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Slider from 'react-slick';
 import './style.scss';
 
 const images = [
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/1.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/2.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/3.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/4.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/5.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/6.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/7.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/8.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/9.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/10.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/11.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/12.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/13.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/14.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/15.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/16.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/17.jpg',
-  'https://raw.githubusercontent.com/99narii/invitation-app/gh-pages/imgs/Gallery/18.jpg',
+  `${process.env.PUBLIC_URL}/imgs/Gallery/1.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/2.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/3.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/4.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/5.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/6.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/7.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/8.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/9.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/10.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/11.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/12.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/13.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/14.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/15.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/16.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/17.webp`,
+  `${process.env.PUBLIC_URL}/imgs/Gallery/18.webp`,
 ];
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sliderRef = useRef<Slider>(null);
   const thumbnailRef = useRef<Slider>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const isSwipingRef = useRef(false);
+
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStartRef.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+    isSwipingRef.current = false;
+  }, []);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (!touchStartRef.current) return;
+
+    const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
+    const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+
+    // 좌우 스와이프가 상하보다 크면 스크롤 방지
+    if (deltaX > deltaY && deltaX > 10) {
+      isSwipingRef.current = true;
+      e.preventDefault();
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    touchStartRef.current = null;
+    isSwipingRef.current = false;
+  }, []);
+
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+
+    gallery.addEventListener('touchstart', handleTouchStart, { passive: true });
+    gallery.addEventListener('touchmove', handleTouchMove, { passive: false });
+    gallery.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    return () => {
+      gallery.removeEventListener('touchstart', handleTouchStart);
+      gallery.removeEventListener('touchmove', handleTouchMove);
+      gallery.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   const handleThumbnailClick = (image: string, index: number) => {
     setSelectedImage(image);
@@ -63,7 +107,10 @@ const Gallery: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: handleAfterChange,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
+    swipe: true,
+    touchThreshold: 10,
+    verticalSwiping: false,
   };
 
   const thumbnailSettings = {
@@ -78,7 +125,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="gallery">
+    <div className="gallery" ref={galleryRef}>
       <div className="large-image">
         <Slider ref={sliderRef} {...settings}>
           {images.map((image, index) => (
