@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import Slider from 'react-slick';
 import './style.scss';
 
@@ -24,37 +24,57 @@ const images = [
 ];
 
 const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState(images[0]);
   const sliderRef = useRef<Slider>(null);
   const thumbnailRef = useRef<Slider>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
-  const isSwipingRef = useRef(false);
+
+  // 스와이프 상태 ref
+  const touchState = useRef({
+    startX: 0,
+    startY: 0,
+    isTracking: false,
+    direction: null as 'horizontal' | 'vertical' | null,
+  });
+
+  const directionLockDistance = 10;
+  const angleLimit = 30;
 
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    touchStartRef.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
+    const touch = e.touches[0];
+    touchState.current = {
+      startX: touch.clientX,
+      startY: touch.clientY,
+      isTracking: true,
+      direction: null,
     };
-    isSwipingRef.current = false;
   }, []);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
-    if (!touchStartRef.current) return;
+    if (!touchState.current.isTracking) return;
 
-    const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
-    const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - touchState.current.startX;
+    const deltaY = touch.clientY - touchState.current.startY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
 
-    // 좌우 스와이프가 상하보다 크면 스크롤 방지
-    if (deltaX > deltaY && deltaX > 10) {
-      isSwipingRef.current = true;
+    // 방향 미정 상태에서 최소 이동 이후 방향 결정
+    if (!touchState.current.direction) {
+      if (absX < directionLockDistance && absY < directionLockDistance) return;
+
+      const angle = Math.atan2(absY, absX) * (180 / Math.PI);
+      touchState.current.direction = angle <= angleLimit ? 'horizontal' : 'vertical';
+    }
+
+    // 수평 스와이프로 판별되면 수직 스크롤 차단
+    if (touchState.current.direction === 'horizontal') {
       e.preventDefault();
     }
   }, []);
 
   const handleTouchEnd = useCallback(() => {
-    touchStartRef.current = null;
-    isSwipingRef.current = false;
+    touchState.current.isTracking = false;
+    touchState.current.direction = null;
   }, []);
 
   useEffect(() => {
@@ -73,7 +93,6 @@ const Gallery: React.FC = () => {
   }, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   const handleThumbnailClick = (image: string, index: number) => {
-    setSelectedImage(image);
     if (sliderRef.current) {
       sliderRef.current.slickGoTo(index);
     }
@@ -88,18 +107,6 @@ const Gallery: React.FC = () => {
     }
   };
 
-  const nextSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
-
-  const prevSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
-
   const settings = {
     dots: false,
     infinite: true,
@@ -107,10 +114,8 @@ const Gallery: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: handleAfterChange,
-    adaptiveHeight: false,
-    swipe: true,
+    swipeToSlide: true,
     touchThreshold: 10,
-    verticalSwiping: false,
   };
 
   const thumbnailSettings = {
@@ -122,6 +127,7 @@ const Gallery: React.FC = () => {
     centerMode: false,
     centerPadding: '0px',
     initialSlide: 0,
+    swipe: false,
   };
 
   return (
@@ -136,8 +142,6 @@ const Gallery: React.FC = () => {
         </Slider>
       </div>
       <div className="thumbnails">
-      {/* <button onClick={prevSlide} className="slider-button prev-button">◁</button> */}
-
         <Slider ref={thumbnailRef} {...thumbnailSettings}>
           {images.map((image, index) => (
             <div key={index} className="thumbnail" onClick={() => handleThumbnailClick(image, index)}>
@@ -145,8 +149,6 @@ const Gallery: React.FC = () => {
             </div>
           ))}
         </Slider>
-        {/* <button onClick={nextSlide} className="slider-button next-button">▶</button> */}
-
       </div>
     </div>
   );
