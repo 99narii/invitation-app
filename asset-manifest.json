@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/invitation-app/static/css/main.9af05a24.css",
-    "main.js": "/invitation-app/static/js/main.b74f507d.js",
+    "main.css": "/invitation-app/static/css/main.a47c93f9.css",
+    "main.js": "/invitation-app/static/js/main.8ede1494.js",
     "static/js/453.ed467f83.chunk.js": "/invitation-app/static/js/453.ed467f83.chunk.js",
     "static/media/main2.webp": "/invitation-app/static/media/main2.9c96736f437b0338b771.webp",
     "static/media/main7.webp": "/invitation-app/static/media/main7.67924f04833adac0d192.webp",
@@ -15,12 +15,12 @@
     "static/media/slick.ttf": "/invitation-app/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/invitation-app/index.html",
     "static/media/slick.woff": "/invitation-app/static/media/slick.295183786cd8a1389865.woff",
-    "main.9af05a24.css.map": "/invitation-app/static/css/main.9af05a24.css.map",
-    "main.b74f507d.js.map": "/invitation-app/static/js/main.b74f507d.js.map",
+    "main.a47c93f9.css.map": "/invitation-app/static/css/main.a47c93f9.css.map",
+    "main.8ede1494.js.map": "/invitation-app/static/js/main.8ede1494.js.map",
     "453.ed467f83.chunk.js.map": "/invitation-app/static/js/453.ed467f83.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9af05a24.css",
-    "static/js/main.b74f507d.js"
+    "static/css/main.a47c93f9.css",
+    "static/js/main.8ede1494.js"
   ]
 }
